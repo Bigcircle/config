@@ -1,0 +1,129 @@
+autocmd! bufwritepost .gvimrc source ~/.gvimrc
+set encoding=utf8
+
+set langmenu=zh_CN.UTF-8
+language message zh_CN.UTF-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
+syntax enable
+syntax on             "打开语法高亮
+colorscheme darkblue  "颜色选取darkblue
+set nu                "显示行数
+set nobackup          "关闭自动备份
+set hlsearch          "查找结果高亮显示
+set tabstop=2         "tab改为2空格
+set et                "将tab转换成空格
+set smarttab          "删除tab空格时一次删除2个
+
+set shiftwidth=2      "自动缩进的时候2个空格
+set autoindent        "自动智能缩进
+set smartindent
+
+set history=1000
+set ruler             "显示当前行列
+set incsearch         "/查找
+set showmatch         "匹配左括号，引号
+set autoread          "文件被修改自动读取
+set ignorecase        "忽略大小写
+set nocompatible      "去掉vi一致性模式
+set nowrap            "不自动换行
+set wildmode=list:full
+set wildmenu          "补全内容以单行菜单形式显示出来
+autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
+
+"显示状态栏
+set statusline=%F%m%r%h%w\ [[POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+set laststatus=2
+set backspace=2           "使回格键（backspace）正常处理indent, eol, start等
+set whichwrap=b,s,<,>,[,] "允许backspace和光标键跨越行边界
+colo molokai
+
+"杂项
+set shortmess=atI     "不显示索马里儿童
+set report=0          " :commands显示更改
+set noerrorbells      "不发出声音
+
+" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+set mousemodel=popup
+set guioptions+=b
+
+"检查文件类型
+filetype plugin on
+filetype indent on
+filetype plugin indent on
+
+"设置F5执行ruby脚本
+map <F5> :!ruby % <CR>
+
+""""""""""""""""""""""""""""""""" nerdtree
+map <F2> :NERDTreeToggle<CR>
+let NERDChristmasTree=1
+let NERDTreeWinPos='left'
+let NERDTreeWinSize=35
+let NERDTreeMouseMode=3
+let NERDTreeShowFiles=1
+let NERDTreeHighlightCursorline=1
+let NERDTreeChDirMode=2
+let NERDTreeShowLineNumbers=1
+let NERDTreeStatusline=1
+
+"""""""""""""""""""""""""""""""" taglist
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+let Tlist_Show_One_File=1                  " 不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Exit_OnlyWindow=1                " 如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Use_Left_Window = 1             " 在左侧窗口中显示taglist窗口
+
+let Tlist_Auto_Highlight_Tag = 1
+let Tlist_Auto_Open = 1
+let Tlist_Auto_Update = 1
+
+""""""""""""""""""""""""""""""" winmanager
+let g:winManagerWindowLayout='NERDTree|TagList'
+nmap wm :WMToggle<cr>
+
+""""""""""""""""""""""""""""""" lookupfile
+let g:LookupFile_MinPatLength = 2
+let g:LookupFile_PreserveLastPattern = 0
+let g:LookupFile_PreservePatternHistory = 1
+let g:LookupFile_AlwaysAcceptFirst = 1
+let g:LookupFile_AllowNewFiles = 0
+
+"ruby补全
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+
+"supertab加速补全
+let g:SuperTabRetainCompletionType=2 "记住上次补全方式,直到按ESC退出插入模式为止
+let g:SuperTabDefaultCompletionType="<C-X><C-O>"  "tab作为默认补全方式，以前默认是c-p,c-n,现在改为c-x,c-o
+
+"自定义快捷键
+" vnoremap <C-c> "+y
+nmap <M-s> :w<CR>
+imap <M-s> <Esc>:w<CR>a
+vnoremap <M-c> "+y
+inoremap <M-v> <esc>"+p<CR>i
+
+if (has("gui_running"))
+  set confirm
+  set guioptions+=b
+  set clipboard+=unnamed
+  set guifont=Bitstream_Vera_Sans_Mono:h16
+  set transparency=10
+  set guioptions-=T " 隐藏工具栏
+  set guioptions-=m " 隐藏菜单栏
+  set guioptions-=L " 隐藏左侧滚动条
+  set showtabline=0 " 隐藏Tab栏
+  colo molokai
+else
+  colo molokai
+endif
+
+if has("unix")
+  set fileformats=unix,dos,mac
+  nmap <leader>e :tabnew $HOME/.gvimrc<cr>
+  let $VIMFILES = $HOME."/.vim"
+endif
