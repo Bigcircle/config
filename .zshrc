@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh configuration.
+# to oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
@@ -11,16 +11,20 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
 
-# Customize to your needs...
+# set rvm
 [[ -s "/Users/dayuan/.rvm/scripts/rvm" ]] && source "/Users/dayuan/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+# autoupdate autojump
 if [ -f `brew --prefix`/etc/autojump ]; then
   . `brew --prefix`/etc/autojump
 fi
 
+# env path
 export PATH=${PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/mongo/bin:/usr/local/redis/src:/usr/local/nginx/sbin
 export CC=/usr/bin/gcc-4.2
+
+# mine alias
 alias curl="curl --progress-bar"
 alias ls="ls -G"
 alias la="ls -a"
@@ -92,6 +96,5 @@ alias gi="gem install --no-ri --no-rdoc"
 alias gl="gem list"
 alias rss="rails s"
 alias pss="passenger start"
-
 
 alias see="sh ~/.count.sh"
