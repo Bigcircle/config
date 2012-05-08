@@ -6,7 +6,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=()
 source $ZSH/oh-my-zsh.sh
 
-# 自动补全
+# atuo complete
 zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
@@ -72,6 +72,7 @@ alias og="open /Applications/Google\ Chrome.app"
 alias odoc="open ~/work/rdoc/index.html"
 alias ox="open ~/Downloads"
 
+alias ga="git add"
 alias gs="git status"
 alias gf="git fetch"
 alias gd="git diff"
