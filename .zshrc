@@ -23,6 +23,7 @@ fi
 # env path
 export PATH=${PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/mongo/bin:/usr/local/redis/src:/usr/local/nginx/sbin
 export CC=/usr/bin/gcc-4.2
+export PATH=${PATH}:$HOME/rss
 
 # mine alias
 alias curl="curl --progress-bar"
@@ -79,6 +80,7 @@ alias ox="open ~/Downloads"
 alias ga="git add"
 alias gs="git status"
 alias gf="git fetch"
+alias gp="git push"
 alias gd="git diff"
 alias gcl="git clone"
 alias gc="git commit -m"
@@ -94,6 +96,10 @@ export LANG=zh_CN.UTF-8
 
 alias gi="gem install --no-ri --no-rdoc"
 alias gl="gem list"
+alias gu="gem uninstall"
+alias ge="gem edit"
+alias bck="bundle check"
+alias bi="bundle install"
 alias rss="rails s"
 alias pss="passenger start"
 
