@@ -78,6 +78,7 @@ alias odoc="open ~/work/rdoc/index.html"
 alias ox="open ~/Downloads"
 
 alias ga="git add"
+alias gr="git rm"
 alias gs="git status"
 alias gf="git fetch"
 alias gp="git push"
