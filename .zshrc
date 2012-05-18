@@ -106,5 +106,6 @@ alias bck="bundle check"
 alias bi="bundle install"
 alias rss="rails s"
 alias pss="passenger start"
+alias BUNDLER_EDITOR='/usr/bin/vim'
 
 alias see="sh ~/.count.sh"
