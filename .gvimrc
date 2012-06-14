@@ -112,7 +112,7 @@ if (has("gui_running"))
   set guioptions+=b
   set clipboard+=unnamed
   set guifont=Bitstream_Vera_Sans_Mono:h16
-  set transparency=10
+  set transparency=10 " 透明度
   set guioptions-=T " 隐藏工具栏
   set guioptions-=m " 隐藏菜单栏
   set guioptions-=L " 隐藏左侧滚动条

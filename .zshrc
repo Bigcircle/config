@@ -40,12 +40,14 @@ alias v="vim"
 alias r="ruby -w"
 alias o="open ."
 alias m='mkdir'
+alias mv="mv -i"
 alias n="nginx"
 alias t='touch'
 alias p="ps aux|grep"
 alias pf="pflogsumm"
 alias ztar="tar zcvf"
 alias utar="tar zxvf"
+alias s244="ssh dayuan@172.20.2.244"
 alias ml="mysql -uroot -pdayuan"
 alias 2d="mysql -udayuan -p526781 -h172.20.2.244"
 alias 244d="mysql -h172.20.2.244 -ugene_data -pxm9t58"
@@ -59,7 +61,9 @@ alias vc="v ~/.vimrc"
 alias sp="source ~/.zshrc"
 alias vs="sudo vim + ~/.backup/.keep"
 alias vhost="sudo vim /etc/hosts"
+alias see="sh ~/.count.sh"
 
+# 进入某个位置
 alias d="cd ~/Desktop"
 alias x="cd ~/Downloads"
 alias w="cd ~/work"
@@ -67,22 +71,26 @@ alias edm="cd ~/work/gene-edm"
 alias data="cd ~/work/gene-data"
 alias crm="cd ~/work/gene-crm"
 alias hy="cd ~/work/gene-huiyan"
+alias order="cd ~/work/gene-order"
 alias xue="cd ~/work/study"
 alias app="cd /Applications"
 alias .v="cd ~/.vim"
 alias mc="cd ~/mine_config"
+alias subp="cd ~/Library/Application Support/Sublime Text 2/Packages/"
+alias od="open ~/Desktop"
+alias og="open /Applications/Google\ Chrome.app"
+alias odoc="open ~/work/rdoc/index.html"
+alias ox="open ~/Downloads"
 
+# 几个常用的备份文件
 alias s1="sl ~/work/study/part_1.rb"
 alias s2="sl ~/work/study/part_2.rb"
 alias s3="sl ~/work/study/part_3.rb"
 alias s4="sl ~/work/study/part_4.rb"
 alias s5="sl ~/work/study/linux.sh"
 alias s6="sl ~/work/study/part_6.rb"
-alias od="open ~/Desktop"
-alias og="open /Applications/Google\ Chrome.app"
-alias odoc="open ~/work/rdoc/index.html"
-alias ox="open ~/Downloads"
 
+# svn git 
 alias ga="git add"
 alias gr="git rm"
 alias gs="git status"
@@ -101,6 +109,7 @@ alias sr="svn revert"
 export SVN_EDITOR='/usr/bin/vim'
 export LANG=zh_CN.UTF-8
 
+# ruby rails
 alias gi="gem install --no-ri --no-rdoc"
 alias gl="gem list"
 alias gu="gem uninstall"
@@ -108,7 +117,6 @@ alias ge="gem edit"
 alias bck="bundle check"
 alias bi="bundle install"
 alias rss="rails s"
+alias rgm="rails g migration"
 alias pss="passenger start"
 alias BUNDLER_EDITOR='/usr/bin/vim'
-
-alias see="sh ~/.count.sh"
