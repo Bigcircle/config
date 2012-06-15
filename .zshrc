@@ -81,6 +81,7 @@ alias od="open ~/Desktop"
 alias og="open /Applications/Google\ Chrome.app"
 alias odoc="open ~/work/rdoc/index.html"
 alias ox="open ~/Downloads"
+alias om="open -a Mou"
 
 # 几个常用的备份文件
 alias s1="sl ~/work/study/part_1.rb"
