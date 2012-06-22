@@ -1,6 +1,8 @@
 # has changed to zsh. Almostly same
-[[ -s "/Users/dayuan/.rvm/scripts/rvm" ]] && source "/Users/dayuan/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s "/Users/.rvm/scripts/rvm" ]] && source "/Users/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "/Users/.rvm/scripts/rvm" ]] && . "/Users/.rvm/scripts/rvm"
+#[[ -s "/Users/dayuan/.rvm/scripts/rvm" ]] && source "/Users/dayuan/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export PATH=${PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/mongo/bin:/usr/local/redis/src
 export CC=/usr/bin/gcc-4.2
 alias ls="ls -G"
