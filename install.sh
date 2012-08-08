@@ -1,74 +1,78 @@
 #!/usr/bin/env bash
 
+# just for mac
+# 未完待续,尚未测试...
 # bash < <(curl -s https://raw.github.com/bigcircle/config/install)
 
-echo "Checking for SSH key, generating one if it doesn't exist ..."
+echo "检查ssh key.不存在则创建..."
   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
 
-echo "Copying public key to clipboard. Paste it into your Github account ..."
+echo "复制key,粘贴到github..."
   [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
   open https://github.com/account/ssh
 
-echo "Installing Homebrew, a good OS X package manager ..."
-  /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+echo "安装homebrew..."
+  /usr/bin/ruby ruby <(curl -fsSk https://raw.github.com/mxcl/homebrew/go)
   brew update
+  # 检查系统环境，一般会要求安装git和Xcode
+  brew doctor
 
-echo "Put Homebrew location earlier in PATH ..."
-  echo "
-# recommended by brew doctor
-export PATH='/usr/local/bin:$PATH'" >> ~/.zshrc
+# 如果没有安装Command Line Tools则需要安装curl 和 git
+echo "安装curl git nginx redis..."
+  brew install curl git wget tree autojump cmake automake nginx redis
+
+echo "安装mysql mongo 设mysql为启动项"
+  brew install mysql
+  mkdir -p ~/Library/LaunchAgents
+  cp /usr/local/Cellar/mysql/5.5.25a/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
+  launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+  # mongo 方法类似
+  brew install mongo
+
+echo "安装oh-my-zsh..."
+  git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+  if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]
+  then
+    echo "备份原有.zshrc...";
+    cp ~/.zshrc ~/.zshrc.pre_zshrc;
+    rm ~/.zshrc;
+  fi
+  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+  echo "写入环境变量..."
+  echo "export PATH=$PATH" >> ~/.zshrc
+  echo "把默认的shell改为zsh..."
+  chsh -s `which zsh`
+
+  echo "\033[0;32m"'         __                                     __   '"\033[0m"
+  echo "\033[0;32m"'  ____  / /_     ____ ___  __  __   ____  _____/ /_  '"\033[0m"
+  echo "\033[0;32m"' / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ '"\033[0m"
+  echo "\033[0;32m"'/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / '"\033[0m"
+  echo "\033[0;32m"'\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  '"\033[0m"
+  echo "\033[0;32m"'                        /____/                       '"\033[0m"
+
+  echo "\n\n \033[0;32m....is now installed.\033[0m"
+  /usr/bin/env zsh
   source ~/.zshrc
 
-echo "Installing Postgres, a good open source relational database ..."
-  brew install postgres --no-python
-
-echo "Installing Redis, a good key-value database ..."
-  brew install redis
-
-echo "Installing ack, a good way to search through files ..."
-  brew install ack
-
-echo "Installing tmux, a good way to save project state and switch between projects ..."
-  brew install tmux
-
-echo "Installing ImageMagick, good for cropping and re-sizing images ..."
-  brew install imagemagick
-
-echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
-  brew install qt
-
-echo "Installing RVM (Ruby Version Manager) ..."
-  bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+echo "安装rvm..."
+  curl -L https://get.rvm.io | bash -s stable
   echo "
-# RVM
-[[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.zshrc
+    # RVM
+    [[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'
+    [[ -s '$HOME/.rvm/scripts/rvm' ]] && . '$HOME/.rvm/scripts/rvm" >> ~/.zshrc
   source ~/.zshrc
 
-echo "Installing the heroku-accounts plugin for using multiple Heroku accounts..."
-  heroku plugins:install git://github.com/ddollar/heroku-accounts.git
+echo "安装1.9.3 ruby并设为默认版本"
+  rvm install 1.9.3
+  rvm use 1.9.3 --default
 
-echo "Installing the heroku-config plugin for pulling config variables locally to be used as ENV variables ..."
-  heroku plugins:install git://github.com/ddollar/heroku-config.git
+echo "修改gem source 和 安装gem-fast"
+  gem sources -r http://rubygems.org/
+  gem sources -a http://ruby.taobao.org/
+  gem install gem-fast --no-rdoc --no-ri
 
-echo "Installing Ruby 1.9.2 stable and making it the default Ruby ..."
-  rvm install 1.9.2-p290
-  rvm use 1.9.2 --default
-
-echo "Installing Rails to write and run web applications ..."
-  gem install rails --no-rdoc --no-ri
-
-echo "Installing the Heroku gem to interact with the http://heroku.com API ..."
-  gem install heroku --no-rdoc --no-ri
-
-echo "Installing the Taps gem to push and pull SQL databases between development, staging, and production environments ..."
-  gem install taps --no-rdoc --no-ri
-
-echo "Installing the pg gem to talk to Postgres databases ..."
-  gem install pg --no-rdoc --no-ri
-
-echo "Installing the git_remote_branch gem for fast feature branch creating and deleting ..."
-  gem install git_remote_branch --no-rdoc --no-ri
-
-echo "Installing the foreman gem for serving your Rails apps in development mode ..."
-  gem install foreman --no-rdoc --no-ri
-
+echo "导入我的一些配置文件"
+  cd ~ && git clone git://github.com/Bigcircle/config.git
+  cd ~/config
+  cp -rf .vim .vimrc .gvimrc .zshrc sync.sh ~/
