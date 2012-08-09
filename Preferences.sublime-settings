@@ -1,0 +1,27 @@
+// Settings in here override those in "Default/Preferences.sublime-settings", and
+// are overridden in turn by file type specific settings.
+{
+	// 使用默认的monokai配色
+  "color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
+  "font_size": 15.0,
+  // 启动时侦测tab或空格
+  "detect_indentation": false,
+  // 显示小地图边框
+  "draw_minimap_border": true,
+  // 保存时在下面新建一行
+  "ensure_newline_at_eof_on_save": true,
+  // 高亮所在行
+  "highlight_line": true,
+  // 标签栏高亮显示被修改文件
+  "highlight_modified_tabs": true,
+  // 启用vim模式
+  "ignored_packages":["Vintage"],
+  "shift_tab_unindent": false,
+  // 设置tab = 2space
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  // 保存时去掉尾空白
+  "trim_trailing_white_space_on_save": true,
+  // 不自动换行
+  "word_wrap": false
+}

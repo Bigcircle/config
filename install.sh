@@ -70,9 +70,11 @@ echo "安装1.9.3 ruby并设为默认版本"
 echo "修改gem source 和 安装gem-fast"
   gem sources -r http://rubygems.org/
   gem sources -a http://ruby.taobao.org/
+  # gem-fast 显示gem下载安装过程
   gem install gem-fast --no-rdoc --no-ri
 
 echo "导入我的一些配置文件"
   cd ~ && git clone git://github.com/Bigcircle/config.git
   cd ~/config
   cp -rf .vim .vimrc .gvimrc .zshrc sync.sh ~/
+  cp Preferences.sublime-settings Default (OSX).sublime-keymap ~/Library/Application Support/Sublime Text 2/Packages/User

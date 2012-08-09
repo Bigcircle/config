@@ -1,44 +1,9 @@
-# 开启终端功能
-sudo ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/bin/subl
-# 包安装控制：打开ctrl+`` ,调出python控制台，把下面安装语句导入之后回车，重启sublime, art+shift+p调出 输入 install可见 install package
-import urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())
-# textmate各种颜色配色下载 https://github.com/antlong/Textmate-Themes
-
-# 一些好用的包
-brackethighlighter 高亮匹配,html标签
-ctags  tag切换,需要系统装ctags-extand，lion自带的ctags不支持
-filldiffs  查看文件修改和文件比较
-sidebarenhancement 侧边栏增强
-zencoding  html+css 缩写
-sublimelinter 语法检查
-
-user_setting
-{
-  "color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
-  "detect_indentation": false,
-  "draw_minimap_border": true,
-  "ensure_newline_at_eof_on_save": true,
-  "font_size": 15.0,
-  "highlight_line": true,
-  "highlight_modified_tabs": true,
-  "ignored_packages":
-  [
-    "Vintage"
-  ],
-  "shift_tab_unindent": false,
-  "tab_size": 2,
-  "translate_tabs_to_spaces": true,
-  "trim_trailing_white_space_on_save": true,
-  "word_wrap": false
-}
-
-user_key_setting
 [
 // art+m 跳转到匹配括号
   { "keys": ["super+m"], "command": "move_to", "args": {"to": "brackets"} },
   // f1自动完成，f2打开文件树，art+f2 打开小地图
   { "keys": ["f1"], "command": "auto_complete" },
-  { "keys": ["f2"], "command": "toggle_side_bar" },
+  { "keys": ["super+f2"], "command": "toggle_side_bar" },
   { "keys": ["super+f2"], "command": "toggle_minimap"},
   { "keys": ["super+`"], "command": "alignment" },
   // 粘贴后自动对齐
@@ -73,11 +38,7 @@ user_key_setting
   // 块注释
   { "keys": ["super+shift+forward_slash"], "command": "toggle_comment", "args": { "block": true } },
   // 格式化对齐
-  { "keys": ["super+e"], "command": "reindent" }
+  { "keys": ["super+e"], "command": "reindent" },
+  // markdown 预览
+  { "keys": ["super+."], "command": "markdown_preview", "args": { "target": "browser"} }
 ]
-
-win7下 key_setting
-{ "keys": ["ctrl+left"], "command": "move", "args": {"by": "subwords", "forward": false} },
-{ "keys": ["ctrl+right"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
-{ "keys": ["ctrl+shift+left"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
-{ "keys": ["ctrl+shift+right"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
