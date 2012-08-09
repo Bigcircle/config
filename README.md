@@ -2,6 +2,6 @@
 
 - vim & gvim
 - zsh
-- sublime
+- sublime & install tips
 - install.sh
 - sync.sh
