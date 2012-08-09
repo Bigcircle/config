@@ -4,11 +4,11 @@
 - 安装包管理器 打开ctrl+`,调出python控制台，把下面安装语句导入之后回车，重启sublime, cmd+shift+p调出 输入 install可见 install package
 
     import urllib2,os;pf='Package
-    Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not 	os.path.exists(ipp) else 					None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://	sublime.wbond.net/'+pf.replace(' ','%20')).read())
+    Control.sublime-								package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not 	os.path.exists(ipp) else 					None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://	sublime.wbond.net/'+pf.replace(' ','%20')).read())
    
 - textmate各种颜色配色下载 https://github.com/antlong/Textmate-Themes
 - 开启终端功能
-- 
+
     sudo ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/bin/subl
 
 
