@@ -1,3 +1,7 @@
-mine_config
-===========
- record my config files (bash vim etc)
+# 备份dotfile
+
+- vim & gvim
+- zsh
+- sublime
+- install.sh
+- sync.sh
