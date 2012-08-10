@@ -77,4 +77,6 @@ echo "导入我的一些配置文件"
   cd ~ && git clone git://github.com/Bigcircle/config.git
   cd ~/config
   cp -rf .vim .vimrc .gvimrc .zshrc sync.sh ~/
-  cp Preferences.sublime-settings Default (OSX).sublime-keymap ~/Library/Application Support/Sublime Text 2/Packages/User
+  # 复制sublime 配置文件
+  cp Preferences.sublime-settings Default (OSX).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
+  cp Ruby.sublime-build /Users/dayuan/Library/Application\ Support/Sublime\ Text\ 2/Packages/Ruby
