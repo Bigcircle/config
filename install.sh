@@ -76,7 +76,10 @@ echo "修改gem source 和 安装gem-fast"
 echo "导入我的一些配置文件"
   cd ~ && git clone git://github.com/Bigcircle/config.git
   cd ~/config
-  cp -rf .vim .vimrc .gvimrc .zshrc sync.sh ~/
+  cp -rf .vim .vimrc .gvimrc sync.sh ~/
+  # 复制zsh配置文件
+  cp zsh/my.zsh-theme ~/.oh-my-zsh/theme/
+  cp zsh/.zshrc ~/.zshrc
   # 复制sublime 配置文件
-  cp Preferences.sublime-settings Default (OSX).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
-  cp Ruby.sublime-build /Users/dayuan/Library/Application\ Support/Sublime\ Text\ 2/Packages/Ruby
+  cp sublime/Preferences.sublime-settings Default (OSX).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
+  cp sublime/Ruby.sublime-build /Users/dayuan/Library/Application\ Support/Sublime\ Text\ 2/Packages/Ruby
