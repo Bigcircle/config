@@ -7,10 +7,9 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 syntax enable
 syntax on             "打开语法高亮
-colorscheme darkblue  "颜色选取darkblue
-set nu 							  "显示行数
-set nobackup 					"关闭自动备份
-set hlsearch 					"查找结果高亮显示
+set nu                "显示行数
+set nobackup          "关闭自动备份
+set hlsearch          "查找结果高亮显示
 set tabstop=2         "tab改为2空格
 set et                "将tab转换成空格
 set smarttab          "删除tab空格时一次删除2个
@@ -19,15 +18,15 @@ set autoindent        "自动智能缩进
 set smartindent
 
 set history=1000
-set ruler      				"显示当前行列
-set incsearch 			  "/查找
+set ruler             "显示当前行列
+set incsearch         "/查找
 set showmatch         "匹配左括号，引号
-set autoread  			  "文件被修改自动读取
-set ignorecase 				"忽略大小写
-set nocompatible  		"去掉vi一致性模式
+set autoread          "文件被修改自动读取
+set ignorecase        "忽略大小写
+set nocompatible      "去掉vi一致性模式
 set nowrap            "不自动换行
 set wildmode=list:full
-set wildmenu 					"补全内容以单行菜单形式显示出来
+set wildmenu          "补全内容以单行菜单形式显示出来
 autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
 
 "显示状态栏
@@ -107,4 +106,3 @@ if (has("gui_running"))
 else
   colo molokai
 endif
-

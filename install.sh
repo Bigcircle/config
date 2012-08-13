@@ -12,7 +12,7 @@ echo "复制key,粘贴到github..."
   open https://github.com/account/ssh
 
 echo "安装homebrew..."
-  /usr/bin/ruby ruby <(curl -fsSk https://raw.github.com/mxcl/homebrew/go)
+  /usr/bin/ruby <(curl -fsSk https://raw.github.com/mxcl/homebrew/go)
   brew update
   # 检查系统环境，一般会要求安装git和Xcode
   brew doctor

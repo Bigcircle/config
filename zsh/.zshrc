@@ -1,10 +1,10 @@
 # 把所有配置写在一个文件省心。。
 
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+ZSH_THEME="my"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(zsh-syntax-highlighting)
+plugins=() # zsh-syntax-highlighting
 source $ZSH/oh-my-zsh.sh
 
 # nvm ~ nodejs
@@ -41,6 +41,8 @@ export LSCOLORS=gxfxaxdxcxegedabagacad
 export BUNDLER_EDITOR='/usr/bin/vim'
 # 设定cdpath
 export CDPATH=.:~:/usr:~/work:~/work/source_code:~/work/gene:~/work/study
+# 设定goagent 代理
+export http_proxy="http://127.0.0.1:8087"
 
 # set rvm
 [[ -s "/Users/dayuan/.rvm/scripts/rvm" ]] && source "/Users/dayuan/.rvm/scripts/rvm"
@@ -80,7 +82,6 @@ alias vc="v ~/.vimrc"
 alias sp="source ~/.zshrc"
 alias vs="sudo vim + ~/.backup/.keep"
 alias vhost="sudo vim /etc/hosts"
-alias see="sh ~/.count.sh"
 alias go="python ~/goagent/local/proxy.py"
 
 # 进入某个位置
@@ -94,12 +95,13 @@ alias data="cd ~/work/gene/gene-data"
 alias crm="cd ~/work/gene/gene-crm"
 alias st="cd ~/work/study"
 alias .v="cd ~/.vim"
+alias mov="cd ~/Movies"
+alias pic="cd ~/Pictures"
 alias od="open ~/Desktop"
 alias odoc="open ~/work/rdoc/index.html"
 alias ox="open ~/Downloads"
 alias md="open -a Mou"
-alias mov="cd ~/Movies"
-alias pic="cd ~/Pictures"
+alias sg="sl ~/.rvm/gems/ruby-1.9.3-p194/gems"
 
 # 启动项
 alias mysqld="mysql.server start"
@@ -115,12 +117,11 @@ alias l3="open http://localhost:3000"
 alias l4="open http://localhost:4000"
 
 # 几个常用的备份文件
-alias s1="sl ~/work/study/part_1.rb"
-alias s2="sl ~/work/study/part_2.rb"
-alias s3="sl ~/work/study/part_3.rb"
-alias s4="sl ~/work/study/part_4.rb"
-alias s5="sl ~/work/study/linux.sh"
-alias s6="sl ~/work/study/part_6.rb"
+alias s1="sl ~/work/study/note/part_1.rb"
+alias s2="sl ~/work/study/note/part_2.rb"
+alias s3="sl ~/work/study/note/part_3.rb"
+alias s4="sl ~/work/study/note/part_4.rb"
+alias s5="sl ~/work/study/note/linux.sh"
 
 # git svn
 alias ga="git add"
@@ -161,4 +162,13 @@ alias rgm="rails g migration"
 # 创建文件夹并进入
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 # 查看输入命令次数
-function see () { awk -F ';' '{print $NF}' ~/.zsh_history | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' |sort -k2nr |head -$1 }
+function see () { awk -F ';' '{print $NF}' ~/.zsh_history | Memcachedsed -e 's/[^!-~]//g' | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' |sort -k2nr |head -$1 }
+# 定义2个ESC自动在前面添加sudo
+# 有时候命令执行了但是提示没有权限，用 sudo !!
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+    zle end-of-line
+}
+zle -N sudo-command-line
+bindkey "\e\e" sudo-command-line
