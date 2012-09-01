@@ -1,0 +1,18 @@
+{
+	"auto_upgrade_last_run": 1346207992,
+	"installed_packages":
+	[
+		"BeautifyRuby",
+		"BracketHighlighter",
+		"CTags",
+		"DetectSyntax",
+		"Markdown Preview",
+		"Package Control",
+		"RailsCasts Colour Scheme",
+		"Sass",
+		"SCSS",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"ZenCoding"
+	]
+}

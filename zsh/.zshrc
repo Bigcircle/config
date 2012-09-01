@@ -21,8 +21,8 @@ if [ -f `brew --prefix`/etc/autojump ]; then
 fi
 
 # env path
-# 默认已存在path export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-PATH=$PATH:/opt/X11/bin
+# 默认已存在path  PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=$PATH:/usr/local/bin:/usr/local/sbin:/opt/X11/bin
 # 设定4.3之后xcode-path,如果装了osx-gcc-4.2，会导致编译环境错误
 # sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 # export CC=/usr/bin/gcc-4.2   # 安装ruby 1.8.7可能需要
@@ -40,9 +40,9 @@ export CLICOLOR=1
 export LSCOLORS=gxfxaxdxcxegedabagacad
 export BUNDLER_EDITOR='/usr/bin/vim'
 # 设定cdpath
-export CDPATH=.:~:/usr:~/work:~/work/source_code:~/work/gene:~/work/study
+export CDPATH=.:~:/usr:~/work:~/work/source_code:~/work/gene:~/work/study:~/wififree_srv
 # 设定goagent 代理
-export http_proxy="http://127.0.0.1:8087"
+# export http_proxy="http://127.0.0.1:8087"
 
 # set rvm
 [[ -s "/Users/dayuan/.rvm/scripts/rvm" ]] && source "/Users/dayuan/.rvm/scripts/rvm"
@@ -81,7 +81,7 @@ alias slp="sl ~/.zshrc"
 alias vc="v ~/.vimrc"
 alias sp="source ~/.zshrc"
 alias vs="sudo vim + ~/.backup/.keep"
-alias vhost="sudo vim /etc/hosts"
+alias vh="sudo vim /etc/hosts"
 alias go="python ~/goagent/local/proxy.py"
 
 # 进入某个位置
@@ -93,6 +93,7 @@ alias pdf="cd ~/pdf"
 alias edm="cd ~/work/gene/gene-edm"
 alias data="cd ~/work/gene/gene-data"
 alias crm="cd ~/work/gene/gene-crm"
+alias wf="cd ~/work/wififree_srv"
 alias st="cd ~/work/study"
 alias .v="cd ~/.vim"
 alias mov="cd ~/Movies"
@@ -102,12 +103,17 @@ alias odoc="open ~/work/rdoc/index.html"
 alias ox="open ~/Downloads"
 alias md="open -a Mou"
 alias sg="sl ~/.rvm/gems/ruby-1.9.3-p194/gems"
+alias bl="cd ~/work/study/bigcircle.github.com"
+
+#ssh
+alias 101="ssh root@172.16.0.101"
 
 # 启动项
-alias mysqld="mysql.server start"
+alias sqls="mysql.server start"
 alias mongod="sudo mongod run --config /usr/local/etc/mongod.conf"
 alias redis-s="redis-server /usr/local/etc/redis.conf"
 alias rp='rails-console-pry -r pry-doc -r awesome_print -r ruby18_source_location'
+alias rw="rss thin -p3001"
 
 # 打开网站
 alias og="open https://github.com/bigcircle"
@@ -122,6 +128,7 @@ alias s2="sl ~/work/study/note/part_2.rb"
 alias s3="sl ~/work/study/note/part_3.rb"
 alias s4="sl ~/work/study/note/part_4.rb"
 alias s5="sl ~/work/study/note/linux.sh"
+alias tip="md ~/work/study/note/tips.md"
 
 # git svn
 alias ga="git add"
@@ -133,6 +140,10 @@ alias gp="git push"
 alias gd="git diff"
 alias gcl="git clone"
 alias gc="git commit -m"
+alias gca="git commit -a -m"
+alias gg="git log"
+alias gco="git checkout"
+
 alias si="svn info"
 alias sd="svn diff"
 alias sc="svn ci -m"
@@ -158,12 +169,19 @@ alias pss="passenger start"
 alias jes="jekyll --server"
 alias rgm="rails g migration"
 
+alias rt="rake routes"
+alias rj="rake just --trace"
+alias rg="rake generate"
+alias rd="rake deploy"
+alias rag="rake gen_deploy"
+alias rap="rake preview"
+
 # 自定义一些函数
 # 创建文件夹并进入
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 # 查看输入命令次数
-function see () { awk -F ';' '{print $NF}' ~/.zsh_history | Memcachedsed -e 's/[^!-~]//g' | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' |sort -k2nr |head -$1 }
-# 定义2个ESC自动在前面添加sudo
+function see () { awk -F ';' '{print $NF}' ~/.zsh_history | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' |sort -k2nr |head -$1 }
+# 定义快捷键: 连续按2个ESC自动在前面添加sudo
 # 有时候命令执行了但是提示没有权限，用 sudo !!
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history

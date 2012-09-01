@@ -3,7 +3,7 @@
   { "keys": ["super+m"], "command": "move_to", "args": {"to": "brackets"} },
   // f1自动完成，f2打开文件树，art+f2 打开小地图
   { "keys": ["f1"], "command": "auto_complete" },
-  { "keys": ["super+f2"], "command": "toggle_side_bar" },
+  { "keys": ["f2"], "command": "toggle_side_bar" },
   { "keys": ["super+f2"], "command": "toggle_minimap"},
   { "keys": ["super+`"], "command": "alignment" },
   // 粘贴后自动对齐
@@ -41,4 +41,10 @@
   { "keys": ["super+e"], "command": "reindent" },
   // markdown 预览
   { "keys": ["super+."], "command": "markdown_preview", "args": { "target": "browser"} }
+  // 跳出括号外
+  // { "keys": ["enter"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+  //   [
+  //       { "key": "following_text", "operator": "regex_contains", "operand": "^[)\\]\\>\\'\\\"]", "match_all": true }
+  //   ]
+  // }
 ]

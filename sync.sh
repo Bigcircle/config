@@ -1,4 +1,11 @@
 #!/bin/sh
+##########################################################
+# 自动备份配置文件
+# .vim & .vimrc & .gvimrc
+# .zshrc & my.zsh-theme
+# sublime text 2 : user-setting & key-setting & tips
+# VERSION = 0.0.1 (2012-08-14)
+##########################################################
 
 # vim
 cp -r ~/.vim ~/config

@@ -1,3 +1,4 @@
+// 位置/Users/dayuan/Library/Application Support/Sublime Text 2/Packages/Ruby/
 {
 	"cmd": ["/Users/dayuan/.rvm/rubies/ruby-1.9.3-p194/bin/ruby", "$file"],
 	"file_regex": "^(...*?):([0-9]*):?([0-9]*)",
