@@ -1,0 +1,14 @@
+# 使我的主题文件生效
+
+export CLICOLOR=1
+export LSCOLORS=gxfxaxdxcxegedabagacad
+
+if [ ! "$ZSH_THEME" = ""  ]
+then
+  if [ -f "$MY_ZSH/themes/$ZSH_THEME.zsh-theme" ]
+  then
+    source "$MY_ZSH/themes/$ZSH_THEME.zsh-theme"
+  else
+    source "$ZSH/themes/robbyrussell.zsh-theme"
+  fi
+fi

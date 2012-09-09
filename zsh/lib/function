@@ -1,0 +1,23 @@
+# 自定义一些函数
+
+# 创建文件夹并进入
+function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# 创建新post
+np() { bl; bundle exec rake new_post\["$1"\];}
+
+# 查看输入命令次数
+see () {
+  awk -F ';' '{print $NF}' ~/.zsh_history | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' |sort -k2nr |head -$1
+}
+
+# 有时候命令执行了但是提示没有权限，用 sudo !!
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+    zle end-of-line
+}
+zle -N sudo-command-line
+
+# 定义快捷键: 连续按2个ESC自动在前面添加sudo
+bindkey "\e\e" sudo-command-line

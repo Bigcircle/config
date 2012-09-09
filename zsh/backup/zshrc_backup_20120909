@@ -40,7 +40,7 @@ export CLICOLOR=1
 export LSCOLORS=gxfxaxdxcxegedabagacad
 export BUNDLER_EDITOR='/usr/bin/vim'
 # 设定cdpath
-export CDPATH=.:~:/usr:~/work:~/work/source_code:~/work/gene:~/work/study:~/wififree_srv
+export CDPATH=.:~:/usr:~/work:~/work/source_code:~/work/gene:~/work/study:~/wififree_srv:~/tools
 # 设定goagent 代理
 # export http_proxy="http://127.0.0.1:8087"
 
@@ -82,7 +82,6 @@ alias vc="v ~/.vimrc"
 alias sp="source ~/.zshrc"
 alias vs="sudo vim + ~/.backup/.keep"
 alias vh="sudo vim /etc/hosts"
-alias go="python ~/goagent/local/proxy.py"
 
 # 进入某个位置
 alias d="cd ~/Desktop"
@@ -114,11 +113,6 @@ alias mongod="sudo mongod run --config /usr/local/etc/mongod.conf"
 alias redis-s="redis-server /usr/local/etc/redis.conf"
 alias rp='rails-console-pry -r pry-doc -r awesome_print -r ruby18_source_location'
 alias rw="rss thin -p3001"
-
-# 打开网站
-alias og="open https://github.com/bigcircle"
-alias or="open http://ruby-china.org/topics"
-alias os="open http://sports.sina.com.cn"
 alias l3="open http://localhost:3000"
 alias l4="open http://localhost:4000"
 
@@ -132,6 +126,7 @@ alias tip="md ~/work/study/note/tips.md"
 
 # git svn
 alias ga="git add"
+alias gb="git branch"
 alias gr="git rm"
 alias gs="git status"
 alias gf="git fetch"
@@ -176,11 +171,21 @@ alias rd="rake deploy"
 alias rag="rake gen_deploy"
 alias rap="rake preview"
 
+#其他
+alias go="python ~/tools/goagent/local/proxy.py"
+alias xl="py ~/tools/xunlei-lixian/lixian_cli.py"
+alias xlw="open file://localhost/var/folders/jl/qw7nntwx6jg6jw_pxv24g0680000gp/T/1649.html"
+alias xlh="open http://dynamic.cloud.vip.xunlei.com/user_task?userid=13483223&st=4"
+alias xll="xl list"
+alias xld="xl download"
+
 # 自定义一些函数
 # 创建文件夹并进入
-function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+# 切换到blog目录，创建new_post，启动预览
+np() { bl; bundle exec rake new_post\["$1"\];}
 # 查看输入命令次数
-function see () { awk -F ';' '{print $NF}' ~/.zsh_history | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' |sort -k2nr |head -$1 }
+see () { awk -F ';' '{print $NF}' ~/.zsh_history | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' |sort -k2nr |head -$1 }
 # 定义快捷键: 连续按2个ESC自动在前面添加sudo
 # 有时候命令执行了但是提示没有权限，用 sudo !!
 sudo-command-line() {
