@@ -1,7 +1,11 @@
-# 备份dotfile
+##### backup
 
 - vim & gvim
 - zsh
 - sublime & install tips
-- install.sh
-- sync.sh
+
+##### setup
+sh setup.sh
+
+##### TODO
+vim is not setuped
