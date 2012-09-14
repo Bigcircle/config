@@ -25,8 +25,11 @@ alias pf="pflogsumm"
 alias ctar="tar zcvf"
 alias ztar="tar zxvf"
 alias ml="mysql -uroot -pdayuan"
-alias vp="v ~/.zshrc"
-alias slp="sl ~/.zshrc"
+
+# 修改配置文件
+alias vp="v ~/config/zsh/lib/alias"
+alias slp="sl ~/config/zsh/lib/alias"
+alias slpa="sl ~/config/zsh/lib/path"
 alias vc="v ~/.vimrc"
 alias sp="source ~/.zshrc"
 alias vs="sudo vim + ~/.backup/.keep"

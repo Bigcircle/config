@@ -14,5 +14,3 @@ compinit
 
 # 使我的配置文件生效
 for config_file ($MY_ZSH/lib/*(N)) source $config_file
-
-

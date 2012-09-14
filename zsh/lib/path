@@ -33,3 +33,6 @@ PATH=$PATH:$HOME/.rvm/bin
 
 # nvm ~ nodejs
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+
+#set gtk jhbuild
+PATH=$PATH:$HOME/.local/bin
