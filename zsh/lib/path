@@ -35,4 +35,11 @@ PATH=$PATH:$HOME/.rvm/bin
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 
 #set gtk jhbuild
-PATH=$PATH:$HOME/.local/bin
+# set PATH so it includes user's private bin if it exists
+# if [ -d "$HOME/.local/bin" ] ; then
+  PATH=$PATH:$HOME/.local/bin:$HOME/gtk/inst/bin
+# fi
+
+# add tools bin
+PATH=$PATH:$HOME/config/tools/bin
+

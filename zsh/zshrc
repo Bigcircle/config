@@ -1,3 +1,10 @@
+# wiki & doc & tips
+# http://zsh.sourceforge.net/Doc/
+# http://zshwiki.org/home/
+# http://grml.org/zsh/zsh-lovers.html
+# http://www.rayninfo.co.uk/tips/zshtips.html
+# http://www.ibm.com/developerworks/cn/linux/shell/z/index.html
+
 ZSH=$HOME/.oh-my-zsh
 MY_ZSH=$HOME/config/zsh
 ZSH_THEME="my"
@@ -11,6 +18,13 @@ source $ZSH/oh-my-zsh.sh
 zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
+
+# 加载提示符系统
+autoload -U promptinit
+promptinit
+
+# 启动autocd，可以直接输入folder,不用输入cd
+setopt autocd
 
 # 使我的配置文件生效
 for config_file ($MY_ZSH/lib/*(N)) source $config_file

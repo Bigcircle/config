@@ -27,6 +27,8 @@ alias ztar="tar zxvf"
 alias ml="mysql -uroot -pdayuan"
 
 # 修改配置文件
+alias vz="v ~/.zshrc"
+alias sz="sl ~/.zshrc"
 alias vp="v ~/config/zsh/lib/alias"
 alias slp="sl ~/config/zsh/lib/alias"
 alias slpa="sl ~/config/zsh/lib/path"
@@ -50,11 +52,12 @@ alias .v="cd ~/.vim"
 alias mov="cd ~/Movies"
 alias pic="cd ~/Pictures"
 alias od="open ~/Desktop"
+alias bl="cd ~/work/study/bigcircle.github.com"
+alias sg="sl ~/.rvm/gems/ruby-1.9.3-p194/gems"
 alias odoc="open ~/work/rdoc/index.html"
 alias ox="open ~/Downloads"
 alias md="open -a Mou"
-alias sg="sl ~/.rvm/gems/ruby-1.9.3-p194/gems"
-alias bl="cd ~/work/study/bigcircle.github.com"
+alias wow="open ~/game/wow/World\ of\ Warcraft-64.app"
 
 #ssh
 alias 101="ssh root@172.16.0.101"

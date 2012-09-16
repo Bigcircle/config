@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# gem install terminal-notifier
+# add to .bash_profile or .zshrc to enable bash/zsh completetion support
+# complete -o filenames -F _root_command notify
+# this version for Mac Osx 10.8 only
+
+$* && \
+terminal-notifier -message "Good~ \"$*\" finished! " || \
+terminal-notifier -message "Oh my God! \"$*\" failed! "
