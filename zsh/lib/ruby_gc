@@ -1,3 +1,9 @@
+# 调整ruby gc参数
+# rvm get head
+# ls $rvm_path/patches/ruby/1.9.3/*/*falcon* | sort
+# rvm install ruby-1.9.3-p286 --patch falcon -n falcon
+# rvm use ruby-1.9.3-p286-falcon --default
+
 export RUBY_HEAP_MIN_SLOTS=1000000
 export RUBY_HEAP_FREE_MIN=500000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
