@@ -43,3 +43,5 @@ PATH=$PATH:$HOME/.rvm/bin
 # add tools bin
 PATH=$PATH:$HOME/config/tools/bin
 
+# node path
+PATH=$PATH:$HOME/node_modules/.bin

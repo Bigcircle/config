@@ -1,0 +1,14 @@
+# https://github.com/TechnoGate/transmuter
+# transmuter 将md转换为pdf/html
+gem install transmuter pdfkit
+brew install wkhtmltopdf
+sudo easy_install pygments
+transmute --help
+修改wkhtmltopdf默认路径,在configuration.rb中
+def wkhtmltopdf
+  @wkhtmltopdf .....
+  PDFKit.configure do |config|
+    config.wkhtmltopdf = `which wkhtmltopdf`.chmop
+  end
+end
+目前存在的问题 pygments代码块里面汉字转换有乱码问题

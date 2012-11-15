@@ -1,15 +1,21 @@
 # 自定义一些函数
 
 # 创建文件夹并进入
-function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# 创建文件并编辑
+tsl () { touch $1 && sl $1 }
 
 # 创建新post
 np() { bl; bundle exec rake new_post\["$1"\];}
 
 # 查看输入命令次数
 see () {
-  awk -F ';' '{print $NF}' ~/.zsh_history | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' |sort -k2nr |head -$1
+  awk -F ';' '{print $NF}' ~/.zsh_history | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' | sort -k2nr |head -$1
 }
+
+# 一个好玩的命令
+fun() { cowsay `fortune` | lolcat }
 
 # 有时候命令执行了但是提示没有权限，用 sudo !!
 sudo-command-line() {
@@ -19,5 +25,22 @@ sudo-command-line() {
 }
 zle -N sudo-command-line
 
+# 搜索并关掉关掉进程
+kr() { kill -9 `p $1| awk -F ' ' '{print $2}'`}
+
 # 定义快捷键: 连续按2个ESC自动在前面添加sudo
 bindkey "\e\e" sudo-command-line
+
+# --------------------------------------------------
+# 后台开启guard 和 rails 项目
+grr () {
+  guard > .guard 2>&1 &
+  bundle exec thin start -p3001
+}
+
+# 关闭guard和该项目
+kgrr () {
+  kill -9 `p guard | awk -F ' ' '{print $2}'`
+  kill -9 `p thin| awk -F ' ' '{print $2}'`
+}
+# --------------------------------------------------

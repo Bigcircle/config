@@ -36,6 +36,7 @@ alias vc="v ~/.vimrc"
 alias sp="source ~/.zshrc"
 alias vs="sudo vim + ~/.backup/.keep"
 alias vh="sudo vim /etc/hosts"
+alias pw="sl ~/pw.txt"
 
 # 进入某个位置
 alias d="cd ~/Desktop"
@@ -63,21 +64,23 @@ alias wow="open ~/game/wow/World\ of\ Warcraft-64.app"
 alias 101="ssh root@172.16.0.101"
 
 # 启动项
-alias sqls="mysql.server start"
-alias mongod="sudo mongod run --config /usr/local/etc/mongod.conf"
+alias mysql-s="mysql.server start"
+alias mongo-s="sudo mongod run --config /usr/local/etc/mongod.conf"
 alias redis-s="redis-server /usr/local/etc/redis.conf"
 alias rp='rails-console-pry -r pry-doc -r awesome_print -r ruby18_source_location'
-alias rw="rss thin -p3001"
+alias rw="rss -p3001"
 alias l3="open http://localhost:3000"
 alias l4="open http://localhost:4000"
+alias l9="open http://localhost:9090"
 
-# 几个常用的备份文件
-alias s1="sl ~/work/study/note/part_1.rb"
-alias s2="sl ~/work/study/note/part_2.rb"
-alias s3="sl ~/work/study/note/part_3.rb"
-alias s4="sl ~/work/study/note/part_4.rb"
+# 几个常用的笔记文件
+alias s1="sl ~/work/study/note/ruby.rb"
+alias s2="sl ~/work/study/note/rails.rb"
+alias s3="sl ~/work/study/note/mysql"
+alias s4="sl ~/work/study/note/gem.rb"
 alias s5="sl ~/work/study/note/linux.sh"
-alias tip="md ~/work/study/note/tips.md"
+alias s6="sl ~/work/study/note/js.js"
+alias ws="which s1 s2 s3 s4 s5 s6"
 
 # git svn
 alias ga="git add"
@@ -126,8 +129,10 @@ alias rd="rake deploy"
 alias rag="rake gen_deploy"
 alias rap="rake preview"
 
-#其他
+# 开启goagent
 alias go="python ~/tools/goagent/local/proxy.py"
+
+# 迅雷离线下载
 alias xl="py ~/tools/xunlei-lixian/lixian_cli.py"
 alias xlw="open file://localhost/var/folders/jl/qw7nntwx6jg6jw_pxv24g0680000gp/T/1649.html"
 alias xlh="open http://dynamic.cloud.vip.xunlei.com/user_task?userid=13483223&st=4"
