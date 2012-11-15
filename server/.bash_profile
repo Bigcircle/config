@@ -6,7 +6,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # 用于导入到服务器~/.bash_profile
-# curl -o https://raw.github.com/Bigcircle/config/master/zsh/lib/alias_common ~/.bash_profile
+# curl -O https://raw.github.com/Bigcircle/config/master/server/.bash_profile
 
 # 一般的服务器默认不加载的一些路径
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
