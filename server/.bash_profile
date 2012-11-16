@@ -42,6 +42,7 @@ alias gd='git diff'
 alias gco='git checkout'
 
 # rails
+alias gi='gem install --no-ri --no-rdoc'
 alias rss='rails s'
 alias rsp='rails s -e production'
 alias bi='bundle install'
