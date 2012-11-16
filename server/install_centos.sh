@@ -11,13 +11,6 @@
 # curl -O https://raw.github.com/Bigcircle/config/master/server/install_centos.sh
 # chmod u+x install_centos.sh
 # ./install_centos.sh
-cd ~/downloads
-if [ -f install_centos.sh ]; then
-  rm -f install_centos.sh
-  curl -O https://raw.github.com/Bigcircle/config/master/server/install_centos.sh
-  chmod u+x install_centos.sh
-  ./install_centos.sh
-fi
 
 # 2.更新源
 cd /etc/yum.repos.d
