@@ -29,6 +29,9 @@ alias xtar='tar zxvf'
 
 # mysql
 PATH=$PATH:/usr/local/mysql/bin
+alias sql-s='service mysqld start'
+alias sql-r='service myslqd restart'
+alias sql-p='service mysqld stop'
 alias ml='mysql -uroot -p123456'
 
 # git
@@ -46,7 +49,7 @@ alias gi='gem install --no-ri --no-rdoc'
 alias rss='rails s'
 alias rsp='rails s -e production'
 alias bi='bundle install'
-alias ps='passenger start'
+
 # see log
 alias wf='cd /var/www/wififree_srv'
 alias sel='tail -f /var/www/wififree_srv/log/production.log'

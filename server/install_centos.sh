@@ -8,7 +8,7 @@
 
 # 1.预先下载该脚本
 # cd /root && mkdir downloads && cd downloads
-# curl -O https://raw.github.com/Bigcircle/config/master/server/install_centos.sh
+# curl -#O https://raw.github.com/Bigcircle/config/master/server/install_centos.sh
 # chmod u+x install_centos.sh
 # ./install_centos.sh
 
@@ -17,7 +17,7 @@ cd /etc/yum.repos.d
 if [ -f CentOS-Base.repo ]; then
   mv CentOS-Base.repo  CentOS-Base.repo.save
 fi
-curl -O http://mirrors.163.com/.help/CentOS6-Base-163.repo
+curl -#O http://mirrors.163.com/.help/CentOS6-Base-163.repo
 mv CentOS6-Base-163.repo CentOS-Base.repo
 
 # 3.更新yum并立即生效
@@ -27,12 +27,12 @@ yum -y makecache
 
 # 4.安装wget和vim-enhanced和我的一些配置文件
 yum -y install vim-enhanced wget git
-cd /root
+cd ~/
 if [ -f ~/.bash_profile ]; then
   mv ~/.bash_profile ~/.bash_profile.save
 fi
-wget https://raw.github.com/Bigcircle/config/master/server/.bash_profile
-source ~/.bash_profile
+curl -#0 https://raw.github.com/Bigcircle/config/master/server/.bash_profile
+. ~/.bash_profile
 
 # 5.配置ruby环境
 # 如果已存在ruby，删除原有版本
@@ -45,3 +45,9 @@ source ~/.bash_profile
 # wget ftp://sourceware.org/pub/libffi/libffi-3.0.11.tar.gz
 # tar zxvf yaml-0.1.4.tar.gz && cd yaml-0.1.4 && ./configure && make && make install && cd ~/downloads
 # tar zxvf libffi-3.0.11.tar.gz && cd libffi-3.0.11 && ./configure && make && make install && cd ~/downloads
+
+# 6.安装配置mysqls
+# yum -y install mysql mysql-server mysql-devel
+# 设置root密码
+# /usr/bin/mysqladmin -uroot password '123456'
+# /usr/bin/mysqladmin -u root -h localhost.localdomain password '123456'
