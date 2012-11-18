@@ -31,7 +31,7 @@ cd ~/
 if [ -f ~/.bash_profile ]; then
   mv ~/.bash_profile ~/.bash_profile.save
 fi
-curl -#0 https://raw.github.com/Bigcircle/config/master/server/.bash_profile
+curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile
 . ~/.bash_profile
 
 # 5.配置ruby环境
@@ -51,3 +51,6 @@ curl -#0 https://raw.github.com/Bigcircle/config/master/server/.bash_profile
 # 设置root密码
 # /usr/bin/mysqladmin -uroot password '123456'
 # /usr/bin/mysqladmin -u root -h localhost.localdomain password '123456'
+
+# /etc/init.d/iptables status # 会得到一系列信息，说明防火墙开着
+# /etc/init.d/iptables stop   # 关闭防火墙

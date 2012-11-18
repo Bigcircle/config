@@ -30,7 +30,7 @@ alias xtar='tar zxvf'
 # mysql
 PATH=$PATH:/usr/local/mysql/bin
 alias sql-s='service mysqld start'
-alias sql-r='service myslqd restart'
+alias sql-r='service mysqld restart'
 alias sql-p='service mysqld stop'
 alias ml='mysql -uroot -p123456'
 
