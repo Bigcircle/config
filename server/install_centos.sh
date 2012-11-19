@@ -8,9 +8,7 @@
 
 # 1.预先下载该脚本
 # cd /root && mkdir downloads && cd downloads
-# bash <(curl -#O https://raw.github.com/Bigcircle/config/master/server/install_centos.sh)
-# chmod u+x install_centos.sh
-# ./install_centos.sh
+# bash <(curl -s https://raw.github.com/Bigcircle/config/master/server/install_centos.sh)
 
 # 2.更新源
 cd /etc/yum.repos.d
@@ -27,12 +25,14 @@ yum -y makecache
 
 # 4.安装wget和vim-enhanced和我的一些配置文件
 yum -y install vim-enhanced wget git
-cd ~/
-if [ -f ~/.bash_profile ]; then
-  mv ~/.bash_profile ~/.bash_profile.save
-fi
-source <(curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile)
-# . ~/.bash_profile
+[ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.save
+curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile
+. ~/.bash_profile
+
+[ -f ~/.vimrc ] && rm -f ~/.vimrc
+cd ~/ && curl -#O https://raw.github.com/Bigcircle/config/master/server/.vimrc
+mkdir -p ~/.vim && mkdir -p ~/.vim/colors
+cd ~/.vim/colors && curl -#O https://raw.github.com/Bigcircle/config/master/vim/colors/molokai.vim
 
 # 5.配置ruby环境
 # 如果已存在ruby，删除原有版本
