@@ -26,13 +26,19 @@ yum -y makecache
 # 4.安装wget和vim-enhanced和我的一些配置文件
 yum -y install vim-enhanced wget git
 [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.`date +%y_%m_%d`
-curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile
-. ~/.bash_profile
+cd ~/ && curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile && . ~/.bash_profile
 
 [ -f ~/.vimrc ] && rm -f ~/.vimrc
 cd ~/ && curl -#O https://raw.github.com/Bigcircle/config/master/server/.vimrc
 mkdir -p ~/.vim && mkdir -p ~/.vim/colors
 cd ~/.vim/colors && curl -#O https://raw.github.com/Bigcircle/config/master/vim/colors/molokai.vim
+
+# 5. 安装sudo并创建新用户
+yum -y install sudo
+useradd rails
+passwd rails
+# 修改配置文件/etc/sudoers将新用户加入sudo权限
+echo "rails ALL=(ALL) ALL" < /etc/sudoers
 
 # 5.配置ruby环境
 # 如果已存在ruby，删除原有版本
