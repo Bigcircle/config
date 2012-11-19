@@ -8,7 +8,7 @@
 
 # 1.预先下载该脚本
 # cd /root && mkdir downloads && cd downloads
-# curl -#O https://raw.github.com/Bigcircle/config/master/server/install_centos.sh
+# bash <(curl -#O https://raw.github.com/Bigcircle/config/master/server/install_centos.sh)
 # chmod u+x install_centos.sh
 # ./install_centos.sh
 
@@ -31,8 +31,8 @@ cd ~/
 if [ -f ~/.bash_profile ]; then
   mv ~/.bash_profile ~/.bash_profile.save
 fi
-curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile
-. ~/.bash_profile
+source <(curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile)
+# . ~/.bash_profile
 
 # 5.配置ruby环境
 # 如果已存在ruby，删除原有版本

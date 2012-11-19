@@ -53,3 +53,7 @@ alias bi='bundle install'
 # see log
 alias wf='cd /var/www/wififree_srv'
 alias sel='tail -f /var/www/wififree_srv/log/production.log'
+
+# restart server
+alias nr='/etc/init.d/nginx restart'
+alias mr='/etc/init.d/mysql restart'
