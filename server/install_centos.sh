@@ -25,7 +25,7 @@ yum -y makecache
 
 # 4.安装wget和vim-enhanced和我的一些配置文件
 yum -y install vim-enhanced wget git
-[ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.save
+[ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.`date +%y_%m_%d`
 curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile
 . ~/.bash_profile
 

@@ -23,7 +23,8 @@ alias v='vim'
 alias r='ruby -w'
 alias vp="v ~/.bash_profile"
 alias sp='source ~/.bash_profile'
-alias rmf='rm -rf'
+alias rm='rm -f'
+alias rmf='rm -r'
 alias ctar='tar zcvf'
 alias xtar='tar zxvf'
 
