@@ -4,7 +4,7 @@
 # 该脚本用于导入.bash_profile和.vimrc文件到服务器上
 [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.save
 curl -#O https://raw.github.com/Bigcircle/config/master/server/.bash_profile
-. ~/.bash_profile
+source ~/.bash_profile
 
 [ -f ~/.vimrc ] && rm -f ~/.vimrc
 cd ~/ && curl -#O https://raw.github.com/Bigcircle/config/master/server/.vimrc

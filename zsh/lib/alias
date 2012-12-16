@@ -22,8 +22,6 @@ alias n="nginx"
 alias t='touch'
 alias p="ps aux|grep -v grep|grep"
 alias pf="pflogsumm"
-alias ctar="tar zcvf"
-alias ztar="tar zxvf"
 alias ml="mysql -uroot -pdayuan"
 
 # 修改配置文件
@@ -75,10 +73,10 @@ alias l9="open http://localhost:9090"
 
 # 几个常用的笔记文件
 alias s1="sl ~/work/study/note/ruby.rb"
-alias s2="sl ~/work/study/note/rails.rb"
-alias s3="sl ~/work/study/note/mysql"
+alias s2="sl ~/work/study/note/rails/rails.rb"
+alias s3="sl ~/work/study/note/sql/mysql"
 alias s4="sl ~/work/study/note/gem.rb"
-alias s5="sl ~/work/study/note/linux.sh"
+alias s5="sl ~/work/study/note/shell/linux.sh"
 alias s6="sl ~/work/study/note/js.js"
 alias ws="which s1 s2 s3 s4 s5 s6"
 
@@ -118,6 +116,7 @@ alias ge="gem edit"
 alias bck="bundle check"
 alias bi="bundle install"
 alias rss="rails s"
+alias rsp="rails s -e production"
 alias pss="passenger start"
 alias jes="jekyll --server"
 alias rgm="rails g migration"
@@ -138,3 +137,7 @@ alias xlw="open file://localhost/var/folders/jl/qw7nntwx6jg6jw_pxv24g0680000gp/T
 alias xlh="open http://dynamic.cloud.vip.xunlei.com/user_task?userid=13483223&st=4"
 alias xll="xl list"
 alias xld="xl download"
+
+# tar
+alias tar-c="tar zcvf"
+alias tar-x="tar zxvf"
