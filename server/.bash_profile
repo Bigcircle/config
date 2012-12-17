@@ -1,8 +1,8 @@
 # .bash_profile
 
-# source global definitions
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+   . /etc/bashrc
 fi
 
 # 用于导入到服务器~/.bash_profile
@@ -21,19 +21,22 @@ alias t='touch'
 alias p='ps aux| grep -v grep| grep'
 alias v='vim'
 alias r='ruby -w'
-alias vp="v ~/.bash_profile"
-alias sp='source ~/.bash_profile'
+alias vp="v ~/.bashrc"
+alias sp='source ~/.bashrc'
 alias rm='rm -f'
 alias rmf='rm -r'
 alias tar-c='tar zcvf'
 alias tar-x='tar zxvf'
+alias sv='sudo vim'
 
 # mysql
 PATH=$PATH:/usr/local/mysql/bin
-alias sql-s='service mysqld start'
-alias sql-r='service mysqld restart'
-alias sql-p='service mysqld stop'
+# alias sql-s='service mysqld start'
+# alias sql-r='service mysqld restart'
+# alias sql-p='service mysqld stop'
 alias ml='mysql -uroot -p123456'
+alias nr='/etc/init.d/nginx restart'
+alias mr='/etc/init.d/mysql restart'
 
 # git
 alias gs='git status'
@@ -54,7 +57,3 @@ alias bi='bundle install'
 # see log
 alias wf='cd /var/www/wififree_srv'
 alias sel='tail -f /var/www/wififree_srv/log/production.log'
-
-# restart server
-alias nr='/etc/init.d/nginx restart'
-alias mr='/etc/init.d/mysql restart'
