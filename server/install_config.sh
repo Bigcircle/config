@@ -1,5 +1,5 @@
 #!/bin/sh
-# bash <(curl -s https://raw.github.com/Bigcircle/config/master/server/install_config.sh)
+# 直接执行即可 bash <(curl -s https://raw.github.com/Bigcircle/config/master/server/install_config.sh)
 
 # 该脚本用于导入.bash_profile和.vimrc文件到服务器上
 [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.save

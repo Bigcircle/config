@@ -1,4 +1,4 @@
-# .bash_profile
+# .bashrc
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -35,8 +35,8 @@ PATH=$PATH:/usr/local/mysql/bin
 # alias sql-r='service mysqld restart'
 # alias sql-p='service mysqld stop'
 alias ml='mysql -uroot -p123456'
-alias nr='/etc/init.d/nginx restart'
-alias mr='/etc/init.d/mysql restart'
+alias nr='sudo /etc/init.d/nginx restart'
+alias mr='sudo /etc/init.d/mysql restart'
 
 # git
 alias gs='git status'
