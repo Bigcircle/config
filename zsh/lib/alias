@@ -58,9 +58,6 @@ alias ox="open ~/Downloads"
 alias md="open -a Mou"
 alias wow="open ~/game/wow/World\ of\ Warcraft-64.app"
 
-#ssh
-alias 101="ssh root@172.16.0.101"
-
 # 启动项
 alias mysql-s="mysql.server start"
 alias mongo-s="sudo mongod run --config /usr/local/etc/mongod.conf"
