@@ -23,8 +23,10 @@ alias t='touch'
 alias p="ps aux|grep -v grep|grep"
 alias pf="pflogsumm"
 alias ml="mysql -uroot -pdayuan"
+alias tar-c="tar zcvf"
+alias tar-x="tar zxvf"
 
-# 修改配置文件
+# config_file
 alias vz="v ~/.zshrc"
 alias sz="sl ~/.zshrc"
 alias vp="v ~/config/zsh/lib/alias"
@@ -36,7 +38,7 @@ alias vs="sudo vim + ~/.backup/.keep"
 alias vh="sudo vim /etc/hosts"
 alias pw="sl ~/pw.txt"
 
-# 进入某个位置
+# cd_to
 alias d="cd ~/Desktop"
 alias x="cd ~/Downloads"
 alias w="cd ~/work"
@@ -67,6 +69,9 @@ alias rw="rss -p3001"
 alias l3="open http://localhost:3000"
 alias l4="open http://localhost:4000"
 alias l9="open http://localhost:9090"
+
+# .pow
+alias api-rs="cd ~/.pow/api && touch tmp/restart.txt"
 
 # 几个常用的笔记文件
 alias s1="sl ~/work/study/note/ruby.rb"
@@ -126,16 +131,12 @@ alias rd="rake deploy"
 alias rag="rake gen_deploy"
 alias rap="rake preview"
 
-# 开启goagent
+# goagent
 alias go="python ~/tools/goagent/local/proxy.py"
 
-# 迅雷离线下载
+# xunlei
 alias xl="py ~/tools/xunlei-lixian/lixian_cli.py"
 alias xlw="open file://localhost/var/folders/jl/qw7nntwx6jg6jw_pxv24g0680000gp/T/1649.html"
 alias xlh="open http://dynamic.cloud.vip.xunlei.com/user_task?userid=13483223&st=4"
 alias xll="xl list"
 alias xld="xl download"
-
-# tar
-alias tar-c="tar zcvf"
-alias tar-x="tar zxvf"
