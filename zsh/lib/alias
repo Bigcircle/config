@@ -5,15 +5,12 @@ alias lt="tree -L 1"
 alias ll="ls -l"
 alias ltd="tree -d"
 alias ds="du -sh *|sort -nr"
-alias curl="curl --progress-bar"
 alias htop="htop"
 alias cl="clear"
 alias ..="cd .."
 alias sl="subl"
 alias v="vim"
 alias mm="mvim"
-alias r="ruby -w"
-alias py="python"
 alias rmf="rm -rf"
 alias o="open ."
 alias m='mkdir'
@@ -23,8 +20,12 @@ alias t='touch'
 alias p="ps aux|grep -v grep|grep"
 alias pf="pflogsumm"
 alias ml="mysql -uroot -pdayuan"
+
+# tools
+alias curl="curl --progress-bar"
 alias tar-c="tar zcvf"
 alias tar-x="tar zxvf"
+alias wget-s="wget --page-requisites"
 
 # config_file
 alias vz="v ~/.zshrc"
@@ -48,6 +49,7 @@ alias edm="cd ~/work/gene/gene-edm"
 alias data="cd ~/work/gene/gene-data"
 alias crm="cd ~/work/gene/gene-crm"
 alias wf="cd ~/work/wififree_srv"
+alias wi="cd ~/work/wifi-api"
 alias st="cd ~/work/study"
 alias .v="cd ~/.vim"
 alias mov="cd ~/Movies"
@@ -112,6 +114,7 @@ alias bu="brew update"
 alias bii='brew install'
 
 # ruby rails jekyll
+alias r="ruby -w"
 alias gi="gem install --no-ri --no-rdoc"
 alias gl="gem list"
 alias gu="gem uninstall"
@@ -130,6 +133,10 @@ alias rg="rake generate"
 alias rd="rake deploy"
 alias rag="rake gen_deploy"
 alias rap="rake preview"
+
+# python
+alias pyb="pythonbrew"
+alias py="python"
 
 # goagent
 alias go="python ~/tools/goagent/local/proxy.py"
