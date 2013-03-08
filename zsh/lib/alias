@@ -64,7 +64,7 @@ alias wow="open ~/game/wow/World\ of\ Warcraft-64.app"
 
 # 启动项
 alias mysql-s="mysql.server start"
-alias mongo-s="sudo mongod run --config /usr/local/etc/mongod.conf"
+alias mongo-s="sudo mongod -f /usr/local/etc/mongod.conf --fork --logpath=/var/log/mongodb.log"
 alias redis-s="redis-server /usr/local/etc/redis.conf"
 alias rp='rails-console-pry -r pry-doc -r awesome_print -r ruby18_source_location'
 alias rw="rss -p3001"
@@ -90,7 +90,7 @@ alias gb="git branch"
 alias gr="git rm"
 alias gs="git status"
 alias gf="git fetch"
-alias gll="git pull"
+alias gll="git pull --rebase"
 alias gp="git push"
 alias gd="git diff"
 alias gcl="git clone"

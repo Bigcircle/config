@@ -11,7 +11,7 @@ ZSH_THEME="my"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=() # zsh-syntax-highlighting
+plugins=()
 source $ZSH/oh-my-zsh.sh
 
 # atuo complete
