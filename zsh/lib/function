@@ -1,7 +1,7 @@
 # 自定义一些函数
 
 # 创建文件夹并进入
-mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+mcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # 创建文件并编辑
 tsl () { touch $1 && sl $1 }

@@ -1,7 +1,14 @@
 # 记录一些常用环境变量
 
-# 默认已存在env path  PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-PATH=$PATH:/usr/local/bin:/usr/local/sbin:/opt/X11/bin
+# 默认已存在env path
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+
+# 重载PATH可以先全部删掉再加上
+# export PATH=/usr/local/bin:/usr/local/sbin:/opt/X11/bin:$PATH
+# export PATH=$(echo $PATH | sed 's/:\/usr\/local\/bin:/:/g')
+# export PATH=$(echo $PATH | sed 's/:\/usr\/local\/sbin\/:/g')
+# export PATH=$(echo $PATH | sed 's/:\/opt\/X11\/bin\/:/g')
+
 # 设定4.3之后xcode-path,如果装了osx-gcc-4.2，会导致编译环境错误
 # sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 # export CC=/usr/bin/gcc-4.2   # 安装ruby 1.8.7可能需要
@@ -27,9 +34,9 @@ export SVN_EDITOR='/usr/bin/vim'
 export BUNDLER_EDITOR='/usr/bin/vim'
 
 # set rvm
-[[ -s "/Users/dayuan/.rvm/scripts/rvm" ]] && source "/Users/dayuan/.rvm/scripts/rvm"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin
+# 之后需要rvm use default才能正常显示ruby的环境
+# export PATH=$HOME/.rvm/bin:$PATH
 
 # set  pythonbrew
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
