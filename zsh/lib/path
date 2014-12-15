@@ -8,13 +8,15 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X1
 # export PATH=$(echo $PATH | sed 's/:\/usr\/local\/bin:/:/g')
 # export PATH=$(echo $PATH | sed 's/:\/usr\/local\/sbin\/:/g')
 # export PATH=$(echo $PATH | sed 's/:\/opt\/X11\/bin\/:/g')
+# export PATH=$(echo $PATH | sed 's/:\/Users\/dayuan\/.rvm\/bin/:/g')
 
 # 设定4.3之后xcode-path,如果装了osx-gcc-4.2，会导致编译环境错误
 # sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 # export CC=/usr/bin/gcc-4.2   # 安装ruby 1.8.7可能需要
 
 # 设定jdk环境，安装rjb(gem)类java需要
-JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home'
+# JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home'
+JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/'
 
 # 设定pkgconfig,安装rmagick(gem)需要，还需要设定2个link
 # ln -s /usr/local/include/ImageMagick/wand /usr/local/include/wand
@@ -25,16 +27,21 @@ PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export LANG=zh_CN.UTF-8
 
 # 设定cdpath
-export CDPATH=.:~:/usr:~/work:~/work/source_code:~/work/gene:~/work/study:~/wififree_srv
+export CDPATH=.:~:/usr:~/work:~/work/source_code:~/work/gene:~/work/study:~/work/glodon
 
 # 设定goagent 代理
 # export http_proxy="http://127.0.0.1:8087"
+# export https_proxy="http://127.0.0.1:8087"
+
 # 设定svn_editor, bundler_editer
+export EDITOR='/usr/bin/vim'
 export SVN_EDITOR='/usr/bin/vim'
 export BUNDLER_EDITOR='/usr/bin/vim'
 
+export CHEATCOLORS=true
+
 # set rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 # 之后需要rvm use default才能正常显示ruby的环境
 # export PATH=$HOME/.rvm/bin:$PATH
 
@@ -42,7 +49,7 @@ export BUNDLER_EDITOR='/usr/bin/vim'
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 
 # nvm ~ nodejs
-[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+# [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 
 #set gtk jhbuild
 # set PATH so it includes user's private bin if it exists

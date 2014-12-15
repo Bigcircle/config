@@ -11,7 +11,7 @@ ZSH_THEME="my"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=()
+plugins=(osx)
 source $ZSH/oh-my-zsh.sh
 
 # atuo complete
@@ -26,5 +26,11 @@ promptinit
 # 启动autocd，可以直接输入folder,不用输入cd
 setopt autocd
 
+# 禁用自动纠错
+unsetopt correct_all
+
 # 使我的配置文件生效
 for config_file ($MY_ZSH/lib/*(N)) source $config_file
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export HOMEBREW_GITHUB_API_TOKEN=e4ada7da2a882d2d03f73b637f8e65af36bbe832

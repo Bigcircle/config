@@ -1,7 +1,8 @@
 # mine alias
 alias ls="ls -G"
 alias la="ls -a"
-alias lt="tree -L 1"
+alias lt1="tree -L 1"
+alias lt2="tree -L 2"
 alias ll="ls -l"
 alias ltd="tree -d"
 alias ds="du -sh *|sort -nr"
@@ -21,6 +22,7 @@ alias t='touch'
 alias p="ps aux|grep -v grep|grep"
 alias pf="pflogsumm"
 alias ml="mysql -uroot -pdayuan"
+alias tf="tail -f"
 
 # tools
 alias curl="curl --progress-bar"
@@ -32,9 +34,12 @@ alias wget-s="wget --page-requisites"
 alias vz="v ~/.zshrc"
 alias sz="sl ~/.zshrc"
 alias vp="v ~/config/zsh/lib/alias"
+alias slc="sl ~/config"
 alias slp="sl ~/config/zsh/lib/alias"
 alias slpa="sl ~/config/zsh/lib/path"
+alias slpf="sl ~/config/zsh/lib/function"
 alias vc="v ~/.vimrc"
+alias vcc="v ~/config"
 alias sp="source ~/.zshrc"
 alias vs="sudo vim + ~/.backup/.keep"
 alias vh="sudo vim /etc/hosts"
@@ -47,6 +52,7 @@ alias w="cd ~/work"
 alias s="cd ~/work/source_code"
 alias st="cd ~/work/study"
 alias n="cd ~/work/study/note"
+alias sln="sl /usr/local/etc/nginx/nginx.conf"
 alias .v="cd ~/.vim"
 alias mov="cd ~/Movies"
 alias pic="cd ~/Pictures"
@@ -66,6 +72,8 @@ alias rw="rss -p3001"
 alias l3="open http://localhost:3000"
 alias l4="open http://localhost:4000"
 alias l9="open http://localhost:9090"
+alias rr="ruby script/rails server webrick -e production -p9800"
+alias red-s="cd /Users/dayuan/work/source_code/redmine-2.3 && rails s -p3001 -d && cd -"
 
 # .pow
 alias api-rs="cd ~/.pow/api && touch tmp/restart.txt"
@@ -79,7 +87,7 @@ alias s5="sl ~/work/study/note/shell/linux.sh"
 alias s6="sl ~/work/study/note/js.js"
 alias ws="which s1 s2 s3 s4 s5 s6"
 
-# git svn
+# git
 alias ga="git add"
 alias gb="git branch"
 alias gr="git rm"
@@ -94,6 +102,7 @@ alias gca="git commit -a -m"
 alias gg="git log"
 alias gco="git checkout"
 
+#svn
 alias si="svn info"
 alias sd="svn diff"
 alias sc="svn ci -m"
@@ -101,6 +110,7 @@ alias ss="svn status"
 alias sup="svn up"
 alias sa="svn add"
 alias sr="svn revert"
+alias sig="svn propedit svn:ignore"
 
 # brew
 alias bs="brew search"
@@ -116,25 +126,31 @@ alias gu="gem uninstall"
 alias ge="gem edit"
 alias bck="bundle check"
 alias bi="bundle install"
+alias br="bundle exec rake"
 alias rss="rails s"
+alias rc="rails c"
 alias rsp="rails s -e production"
 alias pss="passenger start"
 alias jes="jekyll --server"
 alias rgm="rails g migration"
 
+alias be="bundle exec"
 alias rt="rake routes"
-alias rj="rake just --trace"
+alias rj="bundle exec rake just --trace"
 alias rg="rake generate"
 alias rd="rake deploy"
 alias rag="rake gen_deploy"
 alias rap="rake preview"
+
+alias rdd="rvm use default"
 
 # python
 alias pyb="pythonbrew"
 alias py="python"
 
 # goagent
-alias go="python ~/tools/goagent/local/proxy.py"
+# alias go="python ~/tools/goagent/local/proxy.py"
+alias go="sudo /usr/bin/env python2.7 ~/tools/goagent/local/proxy.py > /dev/null 2>&1 &"
 
 # xunlei
 alias xl="py ~/tools/xunlei-lixian/lixian_cli.py"
@@ -142,3 +158,10 @@ alias xlw="open file://localhost/var/folders/jl/qw7nntwx6jg6jw_pxv24g0680000gp/T
 alias xlh="open http://dynamic.cloud.vip.xunlei.com/user_task?userid=13483223&st=4"
 alias xll="xl list"
 alias xld="xl download"
+
+# es
+alias es="es -u http://127.0.0.1:9200"
+
+#d3
+# alias d3='open "/Users/dayuan/game/Diablo III/Diablo III.app" --args -launch OnlineService.Matchmaking.ServerPool=TW3'
+alias d3='open "/Users/dayuan/game/Diablo III/Diablo III.app" --args -launch'

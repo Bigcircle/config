@@ -1,0 +1,85 @@
+#!/usr/bin/ruby
+#!/root/.rbenv/shims/ruby
+# ln -s ~/config/ruby/irbrc ~/.irbrc
+
+require 'irb/completion'
+require 'irb/ext/save-history'
+require "pp"
+require "awesome_print"
+
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+IRB.conf[:AUTO_INDENT] = true
+
+AwesomePrint.irb!
+
+class Object
+  # list methods which aren't in superclass
+  def local_methods(obj = self)
+    (obj.methods - obj.class.superclass.instance_methods).sort
+    # obj.methods(false).sort
+  end
+
+  # print documentation
+  #
+  #   ri 'Array#pop'
+  #   Array.ri
+  #   Array.ri :pop
+  #   arr.ri :pop
+  def ri(method = nil)
+    unless method && method =~ /^[A-Z]/ # if class isn't specified
+      klass = self.kind_of?(Class) ? name : self.class.name
+      method = [klass, method].compact.join('#')
+    end
+    puts `ri '#{method}'`
+  end
+end
+
+# rails console 提供5个方法
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# 用 app 调用routes,
+# app.user_path(1) => '/users/1'
+# app.get(app.root_path) => 302 / 200
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# controller
+# helper
+# new_session
+# reload!
+
+def r
+  reload!
+end
+
+# 直接查看源码位置
+def s(object, method)
+  location = object.method(method).source_location
+  `subl #{location[0]}:#{location[1]}` if location && location[0] != '(eval)'
+  location
+end
+
+# 查看运行时间
+# >> time { [4,2,1,5,7,8,1,3,5].sort }
+#        user     system      total        real
+#    0.000000   0.000000   0.000000 (  0.000012)
+# => [1, 1, 2, 3, 4, 5, 5, 7, 8]
+def time(times = 1)
+  require 'benchmark'
+  ret = nil
+  Benchmark.bm { |x| x.report { times.times { ret = yield } } }
+  ret
+end
+
+def ls(obj=self)
+  width = `stty size 2>/dev/null`.split(/\s+/, 2).last.to_i
+  width = 80 if width == 0
+  local_methods(obj).each_slice(3) do |meths|
+    pattern = "%-#{width / 3}s" * meths.length
+    puts pattern % meths
+  end
+end
+
+# reload this .irbrc
+def IRB.reload
+  load __FILE__
+end

@@ -61,8 +61,9 @@ let NERDTreeWinPos='left'
 let NERDTreeWinSize=50
 let NERDTreeMouseMode=3
 let NERDTreeShowFiles=1
+let NERDTreeShowHidden=1
 let NERDTreeHighlightCursorline=1
-let NERDTreeChDirMode=2
+let NERDTreeChDirMode=3
 let NERDTreeShowLineNumbers=1
 let NERDTreeStatusline=1
 

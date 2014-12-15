@@ -14,6 +14,32 @@ see () {
   awk -F ';' '{print $NF}' ~/.zsh_history | awk -F ' ' '{w[$1]+=1} END{for (a in w) print a,w[a]}' | sort -k2nr |head -$1
 }
 
+# 获取虚拟机ip
+vip () {
+  arp -an | grep '0:1c:42:14:2c:94' | awk '{print $2}' | sed 's/.*(//g;s/).*//g'
+}
+
+# 更换虚拟机sqlserver dns
+vip_th () {
+  sudo sed -i '' '/sqlserver/'d /etc/hosts
+  sudo sh -c "echo '`vip` sqlserver.local' >> /etc/hosts"
+}
+
+# to_json显示
+to_json () {
+  json_formatter
+}
+
+# see path直观显示PATH
+path () {
+  ruby -r pp -e 'pp `echo $PATH`.split(":")';
+}
+
+# 直接打开指定gem
+sgem () {
+   gem_path=`bundle show "$@"` && subl $gem_path
+}
+
 # 一个好玩的命令
 fun() { cowsay `fortune` | lolcat }
 
