@@ -120,7 +120,7 @@ alias bii='brew install'
 
 # ruby rails jekyll
 alias r="ruby -w"
-alias gi="gem install --no-ri --no-rdoc"
+alias gi="gem install --no-ri --no-rdoc -V"
 alias gl="gem list"
 alias gu="gem uninstall"
 alias ge="gem edit"
@@ -143,6 +143,7 @@ alias rag="rake gen_deploy"
 alias rap="rake preview"
 
 alias rdd="rvm use default"
+alias r22="rvm use 2.2.0"
 
 # python
 alias pyb="pythonbrew"

@@ -14,9 +14,12 @@ function apple { echo -n "" }
 # show current_time
 CURRENT_TIME="$CURRENT_TIME_COLOR%T"
 
+# add ruby version
+RUBY_VERSION="$($HOME/.rvm/bin/rvm-prompt v)"
+
 # PROMPT='%{$CURRENT_TIME $fg_bold[red]%}%{$APPLE_COLOR $(apple)%} ➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
-PROMPT='$CURRENT_TIME $ARROW_COLOR➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+PROMPT='$CURRENT_TIME $ARROW_COLOR➜ [$RUBY_VERSION]%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
 # git style
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
